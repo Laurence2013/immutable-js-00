@@ -1,6 +1,6 @@
 /*
 	desc-00: Give code examples using rxjs of() and map() operator, with immutable.js Map() object.
-	desc-00a: rxjs-map, immutable-Map
+	desc-00a: rxjs-map, immutable-map, rxjs-of
 	desc-01: Example 1
 	desc-02: Example 1: Basic Transformation
 	desc-03: Example 2: Transforming Multiple Values
@@ -14,6 +14,8 @@
 		desc-09b: Example 2: Adding a New Nested Value
 	desc-10: Example 3: Updating a Value within a List (using List and setIn)
 	desc-11: Example 4: Conditional Update Based on a Nested Value
+	desc-12: Example 5: Using updateIn (a related method)
+	desc-13: Example 6: Handling potentially missing nested structures
 	goal:
 	line-code-added:
 */
@@ -155,4 +157,25 @@ const result11$ = of(initData09).pipe(
 			obj99.setIn(['user', 'profile', 'isActive'], 'Offline');
 	})
 );
-result11$.subscribe(val99 => console.log(val99.toJS()));
+// result11$.subscribe(val99 => console.log(val99.toJS()));
+
+// desc-12
+const initData10 = Map({
+	user: Map({
+		profile: Map({
+			name: 'Alice',
+			age: 31
+		})
+	})
+});
+const result12$ = of(initData10).pipe(
+	map(obj99 => obj99.updateIn(['user', 'profile', 'age'], age => age + 3))
+);
+// result12$.subscribe(val99 => console.log(val99.toJS()));
+
+// desc-13
+const initData11 = Map({});
+const result13$ = of(initData11).pipe(
+	map(obj99 => obj99.setIn(['user', 'profile', 'name'], 'Cart Miller'))
+);
+result13$.subscribe(val99 => console.log(val99.toJS()));
