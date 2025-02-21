@@ -11,12 +11,15 @@
 	desc-08: groupBy(grouper): Groups entries in the map based on the result of the grouper function.
 	desc-09: Give more code examples using immutable.js setIn() method with rxjs map() operator.
 		desc-09a: Example 1: Updating a Nested Value
+		desc-09b: Example 2: Adding a New Nested Value
+	desc-10: Example 3: Updating a Value within a List (using List and setIn)
+	desc-11: Example 4: Conditional Update Based on a Nested Value
 	goal:
 	line-code-added:
 */
 const { of } = require('rxjs');
 const { map } = require('rxjs/operators');
-const { Map, fromJS } = require('immutable');
+const { Map, List, fromJS } = require('immutable');
 
 // desc-01
 const source00$ = of({items: [1,2,3,4,5]});
@@ -106,4 +109,50 @@ const initData06 = Map({
 const result08$ = of(initData06).pipe(
 	map(obj99 => obj99.setIn(['user', 'profile', 'age'], 40))
 );
-result08$.subscribe(val99 => console.log(val99.toJS()));
+// result08$.subscribe(val99 => console.log(val99.toJS()));
+
+// desc-09, desc09b
+const initData07 = Map({
+  user: Map({
+    profile: Map({
+      name: 'Alice',
+      age: 30,
+    }),
+  }),
+});
+const result09$ = of(initData07).pipe(
+	map(obj99 => obj99.setIn(['user', 'profile', 'city'], 'London'))
+);
+// result09$.subscribe(val99 => console.log(val99.toJS()));
+
+// desc-10
+const initData08 = Map({
+	users: List([
+		Map({id: 1, name: 'Alice'}),
+		Map({id: 2, name: 'John'}),
+	])
+});
+const result10$ = of(initData08).pipe(
+	map(obj99 => obj99.setIn(['users', 0, 'name'], 'Alicia'))
+);
+// result10$.subscribe(val99 => console.log(val99.toJS()));
+
+// desc-11
+const initData09 = Map({
+	user: Map({
+		profile: Map({
+			name: 'Alice',
+			age: 30,
+			isActive: false
+		})
+	})
+});
+const result11$ = of(initData09).pipe(
+	map(obj99 => {
+		const isActive = obj99.getIn(['user', 'profile', 'isActive']);
+		return isActive === true ? 
+			obj99.setIn(['user', 'profile', 'isActive'], 'Online') : 
+			obj99.setIn(['user', 'profile', 'isActive'], 'Offline');
+	})
+);
+result11$.subscribe(val99 => console.log(val99.toJS()));
