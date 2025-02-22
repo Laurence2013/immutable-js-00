@@ -1,6 +1,6 @@
 /*
 	desc-00: Give code examples using rxjs of() and map() operator, with immutable.js Map() object.
-	desc-00a: rxjs-map, immutable-map, rxjs-of
+	desc-00a: immutable-map, rxjs-of, rxjs-map
 	desc-01: Example 1
 	desc-02: Example 1: Basic Transformation
 	desc-03: Example 2: Transforming Multiple Values
