@@ -1,6 +1,6 @@
 /*
 	desc-00: Can you give code exammeples using rxjs groupBy() operator with immutable.js Map()?
-	desc-00a: immutable-map, rxjs-buffer
+	desc-00a: immutable-map, rxjs-buffer, rxjs-transformation
 	desc-01: 1. Buffering Values Based on a Time Interval
 	desc-02: 2. Buffering Values Based on Another Observable
 	desc-03: 3. Buffering Values into an Immutable.js Map

@@ -1,6 +1,6 @@
 /*
 	desc-00: Can you give code exammeples using rxjs groupBy() operator with immutable.js Map()?
-	desc-00a: immutable-map, rxjs-groupby
+	desc-00a: immutable-map, rxjs-groupby, rxjs-transformation
 	desc-01: Example 1: Grouping by a Simple Property
 	desc-02: Example 2: Grouping by a Computed Key (using Immutable.js)
 	desc-03: Example 4: Using reduce instead of toArray + Map
