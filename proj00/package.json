@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-		"start:src00": "node dist/src00/index-05.js",
-    "build:src00": "babel src00/ -d dist/src00",
-    "flow": "flow",
+    "start:src00": "node dist/src00/index-06.js",
+    "build:src00": "babel src00/ -d dist/src00/",
+    "flow:src00": "flow",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,6 +18,7 @@
     "@babel/preset-flow": "^7.25.9",
     "babel-plugin-syntax-hermes-parser": "^0.26.0",
     "flow-bin": "^0.262.0",
+    "flow-typed": "^4.0.0",
     "immutable": "^5.0.3",
     "rxjs": "^7.8.1"
   }
