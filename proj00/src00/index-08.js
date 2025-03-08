@@ -1,5 +1,5 @@
 /*
-	desc-00: 
+	desc-00: Flowjs interfaces and Immutable.js Map() object
 	desc-01: 
 	goal:
 	line-code-added:
@@ -7,8 +7,7 @@
 // @flow
 const { Map, List, fromJS } = require('immutable');
 
-// desc-01
-// Flowjs-Interface-00
+// Flowjs-Interface-00, type declaration and Immutable.js Map()
 interface MyMapInterface {
 	id: number;
 	fName: string;
@@ -18,15 +17,15 @@ interface MyMapInterface {
 };
 type MyMapInterface00 = Map<$Keys<MyMapInterface>, $Values<MyMapInterface>>;
 
-const myMap00: MyMapInterface00 = Map(({
+const myMap00: MyMapInterface00 = Map({
 	id: 1,
 	fName: 'Lozza',
 	lName: 'Mitchell',
 	age: 29,
 	hobbies: ['Weights', 'Boxing']
-}));
+});
 
-// Flowjs-Interface-01
+// Flowjs-Interface-01, type declaration and Immutable.js Map()
 interface Address {
 	street: string;
 	city: string
