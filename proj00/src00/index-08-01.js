@@ -6,7 +6,7 @@
 	line-code-added:
 */
 // @flow
-const { Map, List, fromJS } = require('immutable');
+const { Map, List, Stack, fromJS } = require('immutable');
 
 // Flowjs-Interface-00, type declaration and Immutable.js List()
 interface Address01 {
@@ -52,5 +52,45 @@ const test00 = personList00.push(person04);
 const getPerson01 = test00.get(2) ?? null;
 const getPerson02 = test00.toArray() ?? null;
 const result00 = getPerson02.filter(obj => obj.id === 2)
+// console.log(result00);
 
-console.log(result00);
+// Flowjs-Interface-01, type declaration and Immutable.js Stack()
+interface Address02 {
+	no: number;
+	address: string;
+	postcode: string;
+};
+interface Person02 {
+	id: number;
+	name: string;
+	age?: number;
+	email?: string;
+	address: Address02;
+};
+type PersonStack00 = Stack<Person02>;
+const person05: Person02 = {
+  id: 1,
+  name: 'Alice',
+  age: 30,
+  email: 'alice@example.com',
+	address: {no: 31, address: 'some secret address 4', postcode: 'wvSomething'}
+};
+const person06: Person02 = {
+  id: 2,
+  name: 'Bob',
+	address: {no: 32, address: 'some secret address 5', postcode: 'wvSomething'}
+};
+const person07:PersonStack00 = Stack([person05, person06]);
+const topPerson00 = person07.peek() ?? null;
+
+const person08: Person02 = {
+  id: 3,
+  name: 'Lozza',
+  email: 'lozza@example.com',
+	address: {no: 33, address: 'some secret address 6', postcode: 'wvSomething'}
+};
+const test01 = person07.push(person08);
+
+const getName = test01.get(0) ?? null;
+
+console.log(getName);
