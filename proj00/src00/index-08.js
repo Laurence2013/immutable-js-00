@@ -1,5 +1,6 @@
 /*
 	desc-00: Flowjs interfaces and Immutable.js Map() object
+	desc-00a: immutable-map
 	desc-01: 
 	goal:
 	line-code-added:

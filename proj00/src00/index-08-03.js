@@ -1,14 +1,14 @@
 /*
 	desc-00: In flowjs, just like Map type checker 'type PersonMapType = Immutable.Map<$Keys<Person>, $Values<Person>>;', ...
 	desc-00a: ...immutable.js Map() object what is Set() type checker in flowjs?
-	desc-01: 
+	desc-01: immutable-set
 	goal:
 	line-code-added:
 */
 // @flow
 const { Map, List, Stack, OrderedMap, Set, fromJS } = require('immutable');
 
-// Flowjs-Interface-00, type declaration and Immutable.js Set
+// Flowjs-Interface-00, type declaration and Immutable.js Set()
 interface Address00 {
 	no: number;
 	address: string;
@@ -39,6 +39,6 @@ const person03: Person00 = {
 const personSet00:PersonObj = Set([person02, person03]);
 
 const getArray00 = personSet00.toArray() ?? null;
-const getName00 = personSet00.has('id') ?? null;
+//const getName00 = personSet00.has('id') ?? null;
 
-console.log(getName00);
+//console.log(getName00);

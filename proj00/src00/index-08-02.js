@@ -1,7 +1,7 @@
 /*
 	desc-00: Just like Map type checker 'type PersonMapType = Immutable.Map<$Keys<Person>, $Values<Person>>;', immutable.js Map() object...
 	desc-00a: ..what is OrderedMap type checker in flowjs?
-	desc-01: 
+	desc-01: immutable-orderedMap
 	goal:
 	line-code-added:
 */

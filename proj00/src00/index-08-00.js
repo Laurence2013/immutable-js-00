@@ -1,7 +1,7 @@
 /*
 	desc-00: Give code examples for flowjs interfaces, type checker 'type PersonMapType = Immutable.Map<$Keys<Person>, $Values<Person>>;'...
 	desc-00a: ...and immutable.js Map() object.
-	desc-01: 
+	desc-01: immutable-map, immutable-list
 	goal:
 	line-code-added:
 */
