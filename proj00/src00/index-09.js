@@ -11,19 +11,7 @@ const { tap, map, filter, take, expand, mergeMap, flatMap } = require('rxjs/oper
 const { Map, List, fromJS } = require('immutable');
 
 // desc-01
-/*interface Children00 {
-	id: number;
-	name: string;
-	children: Array<Map<string, number | string | [] >>;
-}
-interface User00 {
-	id: number;
-	name: string;
-	children: Array<Map<string, number | string | [] | Map<string, number | string | []>>>;
-};
-type userChildren00 = Map<$Keys<User00>, $Values<User00>>;*/
-
-/*const data01:userChildren00 = Map({
+const data01 = Map({
 	id: 1,
 	name: 'Root',
 	children: [
@@ -45,4 +33,4 @@ const result00$ = from([data01]).pipe(
 		map(obj97 => obj97.get('name'))
 	))
 );
-result00$.subscribe(console.log);*/
+result00$.subscribe(console.log);
