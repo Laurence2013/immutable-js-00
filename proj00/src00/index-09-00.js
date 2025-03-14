@@ -7,7 +7,7 @@
 */
 // @flow
 const { of, from, interval, EMPTY } = require('rxjs');
-const { tap, map, filter, take, expand, mergeMap, flatMap } = require('rxjs/operators');
+const { tap, map, filter, take, expand, mergeMap, flatMap, reduce } = require('rxjs/operators');
 const { Map, List, fromJS } = require('immutable');
 
 // desc-01
@@ -23,19 +23,19 @@ const data00 = Map({
 		},
 	],
 });
-const immutableData00 = fromJS({
-	name: data00.get('name'),
-	children: data00.get('children')
-});
-const immutableData01 = data00.toArray();
+const data01_fromJS = fromJS(data00.toJS());
+const test00 = data01_fromJS.get('children').get(0);
+const test01 = data01_fromJS.get('children').map((obj, idx) => obj.get('name'));
+const test02 = data01_fromJS.get('children').map((obj, idx) => obj.get('children'));
+const test02a = test02.map(obj => obj.get(1));
 
-const result00$ = from([immutableData01]).pipe(
-	expand(obj99 => {
-		const children = obj99.filter(obj => obj.children);
-		return children && children.length > 0 ? from(children) : EMPTY;
-	}),
-	mergeMap(obj98 => from([obj98]).pipe(
-		map(obj97 => obj97.filter(obj => obj.name))
-	))
-);
-result00$.subscribe(console.log);
+console.log(test02.toJS());
+console.log(test02a.toJS());
+console.log(test01.toArray());
+console.log(test01.toJS());
+
+/*console.log(data01_fromJS.toJS());
+console.log(Map.isMap(data01_fromJS));
+console.log(List.isList(data01_fromJS.get('children')));
+console.log(Map.isMap(data01_fromJS.get('children').get(0))); 
+console.log(test00.get('name'));*/
