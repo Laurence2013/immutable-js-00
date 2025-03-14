@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start:src00": "node dist/src00/index-09-00.js",
+    "start:src00": "node dist/src00/index-09-00a.js",
     "build:src00": "babel src00/ -d dist/src00/",
     "flow:src00": "flow",
     "test": "echo \"Error: no test specified\" && exit 1"

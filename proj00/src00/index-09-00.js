@@ -24,7 +24,7 @@ const data00 = Map({
 	],
 });
 const data01_fromJS = fromJS(data00.toJS());
-const test00 = data01_fromJS.get('children').get(0);
+/*const test00 = data01_fromJS.get('children').get(0);
 const test01 = data01_fromJS.get('children').map((obj, idx) => obj.get('name'));
 const test02 = data01_fromJS.get('children').map((obj, idx) => obj.get('children'));
 const test02a = test02.map(obj => obj.get(1));
@@ -32,10 +32,19 @@ const test02a = test02.map(obj => obj.get(1));
 console.log(test02.toJS());
 console.log(test02a.toJS());
 console.log(test01.toArray());
-console.log(test01.toJS());
+console.log(test01.toJS());*/
 
-/*console.log(data01_fromJS.toJS());
-console.log(Map.isMap(data01_fromJS));
-console.log(List.isList(data01_fromJS.get('children')));
-console.log(Map.isMap(data01_fromJS.get('children').get(0))); 
-console.log(test00.get('name'));*/
+//console.log(data01_fromJS.toJS());
+//console.log(Map.isMap(data01_fromJS));
+//console.log(test00.get('name'));
+//console.log(List.isList(data01_fromJS.get('children')));
+//console.log(Map.isMap(data01_fromJS.get('children').get(0))); 
+
+const result00$ = from([data01_fromJS]).pipe(
+	map(obj99 => {
+		const mainName = obj99.get('name');
+		const children = obj99.get('children')
+		return List([mainName, children.get(0), children.get(1)]);
+	})
+);
+result00$.subscribe(val => console.log(val.toJS()));

@@ -30,6 +30,9 @@ const data01:userChildren00 = Map({
 		}),
 	],
 });
+//const data01_fromJS = fromJS(data01.toJS());
+//console.log(List.isList(data01_fromJS.get('children')));
+//console.log(Map.isMap(data01_fromJS.get('children').get(0))); 
 
 const result00$ = from([data01]).pipe(
 	expand(obj99 => {
