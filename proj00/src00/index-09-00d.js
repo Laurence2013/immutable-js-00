@@ -26,18 +26,12 @@ const data00 = Map({
 		},
 	],
 });
-console.log('1. data00: ', data00);
-console.log('2. data00: ', data00.get('children'));
-const test00 = data00.get('children');
-//console.log('test00: ', test00);
-const test01a = test00.map((val, idx) => [Map(val)]);
-console.log('1. test01a: ', test01a);
-//console.log('2. test01a: ', test01a[0]);
-test01a.map(obj00 => obj00.map(obj01 => console.log('3. test01a: ', obj01.get('name'))));
-const test01 = test00.map((val, idx) => [val]);
-const test02 = test01.map(obj => {
-	const test03:Map<string, mixed> = Map(obj[0]);
-	return test03;
-});
-//test02.map(obj => console.log(obj.get('name')));
-
+const test00 = data00.get('children'); // typeOf normal JS array, normal JS map
+const test01 = Map(test00.map(child => {
+	const immutableChild = fromJS(child);
+	return [immutableChild.get('id'), immutableChild]
+}));
+console.log(test01);
+console.log(test01.toJS());
+console.log(test01.get(2).get('name'));
+console.log(test01.get(3).get('name'));
