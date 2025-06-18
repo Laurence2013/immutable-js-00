@@ -19,9 +19,11 @@ const data00:Map<string, Array<{id: number, name: string}>> = Map({
 });
 const testData00:Array<{id: number, name: string}> = data00.get('children', []);
 const testData01:Map<number, [string, Array<{id: number, name: string}>]> = List(data00).toMap();
-if(Array.isArray(testData01)){
+if(testData01){
 	const testData02:Array<string | Array<{id: number, name: string}>> = testData01.get(0);
 	console.log(testData02);
+}else{
+	console.log(false);
 }
 
 //testData02.filter(obj => obj === 'children')
