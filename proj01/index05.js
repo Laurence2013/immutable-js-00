@@ -25,7 +25,7 @@ interface mainObj {
   }
 }
 
-const nestedStructure00:mainObj  = {
+const nestedStructure00:mainObj = {
   name: "Parent",
   details: {
     items: [
@@ -64,4 +64,4 @@ const result02$ = of(nestedStructure00).pipe(
   map(obj98 => fromJS(obj98).toMap()),
   map(obj97 => obj97.get('items').map(obj96 => obj96.get('info').get('type')))
 );
-result02$.subscribe(val00 => console.log(val00.toJS()));
+result00$.subscribe(val00 => console.log(val00.toJS()));
